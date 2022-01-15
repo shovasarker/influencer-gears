@@ -66,18 +66,19 @@ a {
   display: flex;
   flex-direction: column;
   gap: 2px;
+  justify-content: center;
 }
 
 .navbar__hamburger_menu-mobile > span {
   width: 18px;
-  height: 3px;
+  height: 2px;
   background-color: black;
 }
 
 .navbar__logo {
   font-weight: 700;
-  font-size: 1.5rem;
-  line-height: 2.25rem;
+  font-size: 1rem;
+  line-height: 1.5rem;
   color: var(--text-color);
 }
 
@@ -190,6 +191,7 @@ a {
 /*-------------------------------
  Collection Section Styles
  -----------------------------------*/
+
 .collection {
   margin-bottom: 3.25rem;
 }
@@ -274,6 +276,46 @@ a {
   gap: 0.5rem;
 }
 
+/*-------------------------------
+ Footer Section Styles
+ -----------------------------------*/
+.footer {
+  width: 100%;
+  height: 210px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  background-color: black;
+  text-align: center;
+}
+
+.footer__title {
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 1.5rem;
+}
+.footer__copyright {
+  font-size: 0.75rem;
+  line-height: 1.5rem;
+  font-weight: normal;
+}
+.footer__icons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 0.75rem;
+}
+.footer__icons > i {
+  width: 24px;
+  height: 24px;
+  font-size: 12px;
+  line-height: 24px;
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+}
 /* -------------------------------------------------
    *Media Queries For Different Size Devices (Responsive Code)
 -----------------------------------------------------*/
@@ -284,6 +326,10 @@ a {
 @media (min-width: 678px) {
   .container {
     max-width: 600px;
+  }
+  .navbar__logo {
+    font-size: 1.5rem;
+    line-height: 2.25rem;
   }
   .client-logos {
     padding: 2.25rem;
@@ -298,6 +344,28 @@ a {
   }
   .collection__cards {
     grid-template-columns: repeat(2, 1fr);
+  }
+
+  .footer {
+    height: 240px;
+  }
+
+  .footer__title {
+    font-size: 1.5rem;
+    line-height: 2.25rem;
+    margin-bottom: 0.5rem;
+  }
+  .footer__copyright {
+    font-size: 0.875rem;
+  }
+  .footer__icons {
+    margin-top: 1.125rem;
+  }
+  .footer__icons > i {
+    width: 2rem;
+    height: 2rem;
+    font-size: 1rem;
+    line-height: 2rem;
   }
 }
 
