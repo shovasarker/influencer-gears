@@ -1,0 +1,290 @@
+/* ****************************
+*Styling with Mobile First Approach 
+**************************************/
+
+/* -----------------------------------------
+css custom properties or variables 
+------------------------------------------*/
+
+:root {
+  --text-color: #3a3a3a;
+  --btn-color: #e02c6d;
+}
+
+/* ------------------
+   Global Common Styles 
+---------------------*/
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #fff;
+  font-family: 'Poppins', sans-serif;
+}
+
+li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+.container {
+  max-width: 330px;
+  margin: 0 auto;
+}
+
+.flex-row-align-center {
+  display: flex;
+  align-items: center;
+}
+
+/* ----------------------------
+   End of Global Common Styles 
+-------------------------------*/
+
+/* -------------------------
+    Header styles Start
+--------------------------- */
+.header {
+  padding: 2rem 0;
+}
+.navbar {
+  justify-content: space-between;
+}
+
+.navbar__hamburger_menu-mobile {
+  width: 18px;
+  height: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.navbar__hamburger_menu-mobile > span {
+  width: 18px;
+  height: 3px;
+  background-color: black;
+}
+
+.navbar__logo {
+  font-weight: 700;
+  font-size: 1.5rem;
+  line-height: 2.25rem;
+  color: var(--text-color);
+}
+
+.navbar__links {
+  gap: 2rem;
+}
+
+.navbar__menu-pc {
+  gap: 2rem;
+  display: none;
+}
+
+.navbar__menu-pc > li > a {
+  font-weight: 600;
+  font-size: 1rem;
+  line-height: 1.5rem;
+  color: var(--text-color);
+}
+
+.search-icon {
+  display: flex;
+  align-items: center;
+}
+
+/* ----------------------
+*Hero Section Styles 
+--------------------------*/
+
+.hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 3.25rem;
+}
+
+.hero__img_container {
+  width: 257px;
+  height: 257px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  padding-bottom: 1rem;
+  background-image: url('../images/Circle\ design.svg');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  margin-bottom: 1rem;
+}
+
+.hero__img_container > img {
+  width: 202px;
+  height: 190px;
+}
+
+.hero__description {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.title {
+  font-weight: 700;
+  font-size: 1.75rem;
+  line-height: 2.625rem;
+  margin-bottom: 1rem;
+}
+
+.details {
+  font-weight: 500;
+  font-size: 0.875rem;
+  line-height: 1.3125rem;
+  margin-bottom: 1.25rem;
+}
+
+.btn {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.625rem 1.5rem;
+  font-size: 1rem;
+  line-height: 1.5rem;
+  color: #fff;
+  border-radius: 9999px;
+  border: none;
+  background-color: var(--btn-color);
+}
+
+/*-------------------------------
+ Client Links Section Styles 
+ -----------------------------------*/
+.client-logos {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  column-gap: 2rem;
+  row-gap: 1.25rem;
+  margin-bottom: 3.25rem;
+}
+
+.client-logos > a {
+  width: 15%;
+}
+/* background: linear-gradient(90deg, rgba(192, 204, 218, 0.1) 0%, rgba(192, 204, 218, 0.6) 50.38%, rgba(192, 204, 218, 0.1) 100%); */
+
+.client-logos > a > img {
+  width: 100%;
+}
+
+/* -------------------------------------------------
+   *Media Queries For Different Size Devices (Responsive Code)
+-----------------------------------------------------*/
+
+/*--------------------------------------
+ For Tablets
+--------------------------------------- */
+@media (min-width: 678px) {
+  .container {
+    max-width: 600px;
+  }
+  .client-logos {
+    padding: 2.25rem;
+    border: 1px solid;
+    border-image: linear-gradient(
+      90deg,
+      rgba(192, 204, 218, 0.1) 0%,
+      rgba(192, 204, 218, 0.6) 50.38%,
+      rgba(192, 204, 218, 0.1) 100%
+    );
+    border-image-slice: 1;
+  }
+}
+
+/*--------------------------------------
+ For Medium Screen Laptops or PCs
+--------------------------------------- */
+
+@media (min-width: 1024px) {
+  .container {
+    max-width: 900px;
+  }
+  .navbar__hamburger_menu-mobile {
+    display: none;
+  }
+  .navbar__menu-pc {
+    display: flex;
+  }
+  .hero {
+    flex-direction: row-reverse;
+    gap: 6.25rem;
+    margin-bottom: 6.25rem;
+  }
+  .hero__img_container {
+    width: 50%;
+    height: auto;
+    margin-bottom: 0;
+  }
+
+  .hero__img_container > img {
+    width: 90%;
+    height: auto;
+  }
+  .hero__description {
+    width: 50%;
+    text-align: start;
+    align-items: flex-start;
+  }
+  .title {
+    font-size: 2.6rem;
+    line-height: 3.375rem;
+  }
+
+  .details {
+    font-size: 1rem;
+    line-height: 1.5rem;
+    margin-bottom: 1.25rem;
+  }
+
+  .client-logos {
+    gap: 3.75%;
+    padding: 2.25rem;
+    margin-bottom: 6.25rem;
+  }
+
+  .client-logos > a {
+    width: 10%;
+  }
+  .client-logos > a:first-child {
+    width: 8%;
+  }
+}
+
+/*--------------------------------------
+ For Large Screen Laptops or PCs
+--------------------------------------- */
+@media (min-width: 1200px) {
+  .container {
+    max-width: 1047px;
+  }
+  .hero {
+    gap: 3rem;
+  }
+
+  .title {
+    font-size: 3.25rem;
+    line-height: 4.375rem;
+  }
+}
