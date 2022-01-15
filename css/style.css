@@ -26,6 +26,7 @@ css custom properties or variables
 body {
   background-color: #fff;
   font-family: 'Poppins', sans-serif;
+  overflow-x: hidden;
 }
 
 li {
@@ -96,6 +97,10 @@ a {
   font-size: 1rem;
   line-height: 1.5rem;
   color: var(--text-color);
+  padding-bottom: 5px;
+}
+.navbar__menu-pc > li > a:hover {
+  border-bottom: 3px solid var(--text-color);
 }
 
 .search-icon {
@@ -128,18 +133,48 @@ a {
   margin-bottom: 1rem;
 }
 
+.hero__img_container:hover > img {
+  transform: scale(1.1);
+}
+
 .hero__img_container > img {
+  position: relative;
+  left: 50%;
   width: 202px;
   height: 190px;
+  transition: transform 0.5s ease-in-out;
+  animation: image-moving 1s 0.5s ease-in-out forwards;
+}
+
+@keyframes image-moving {
+  0% {
+    left: 49%;
+  }
+
+  100% {
+    left: 0%;
+  }
 }
 
 .hero__description {
+  position: relative;
+  left: -50%;
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
+  animation: text-moving 1s 0.5s ease-in-out forwards;
 }
 
+@keyframes text-moving {
+  0% {
+    left: -49%;
+  }
+
+  100% {
+    left: 0%;
+  }
+}
 .title {
   font-weight: 700;
   font-size: 1.75rem;
@@ -164,8 +199,20 @@ a {
   line-height: 1.5rem;
   color: #fff;
   border-radius: 9999px;
-  border: none;
+  border: 1px solid var(--btn-color);
   background-color: var(--btn-color);
+  transition: all 0.5s ease-in-out;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background-color: #fff;
+  color: var(--btn-color);
+}
+
+.btn:hover > i {
+  transform: rotate(360deg);
+  transition: transform 0.5s ease-in-out;
 }
 
 /*-------------------------------
@@ -277,6 +324,50 @@ a {
 }
 
 /*-------------------------------
+ Categorized Collection Section Styles
+ -----------------------------------*/
+.categorized-collection {
+  margin-bottom: 3.25rem;
+}
+
+.category__card {
+  position: relative;
+  width: 100%;
+  height: 230px;
+  border-radius: 5px;
+  overflow: hidden;
+  cursor: pointer;
+  box-shadow: 0px 0px 40px rgba(0, 0, 0, 0.15);
+}
+
+.category__card:hover > img {
+  transform: scale(1.1);
+}
+
+.category__card:hover .category__card-title {
+  background-color: rgba(255, 255, 255, 0.25);
+}
+
+.category__card > img {
+  width: 100%;
+  height: 100%;
+  transition: transform 0.5s ease-in-out;
+}
+
+.category__card-title {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  padding: 1rem;
+  border-radius: 5px;
+  background-color: rgba(255, 255, 255, 0.45);
+  transition: background-color 0.5s ease-in-out;
+  font-size: 1rem;
+}
+
+/*-------------------------------
  Footer Section Styles
  -----------------------------------*/
 .footer {
@@ -344,6 +435,10 @@ a {
   }
   .collection__cards {
     grid-template-columns: repeat(2, 1fr);
+  }
+
+  .category__card {
+    height: 210px;
   }
 
   .footer {
@@ -442,6 +537,13 @@ a {
   .card > p {
     font-weight: 700;
   }
+  .categorized-collection {
+    margin-bottom: 3.25rem;
+  }
+
+  .category__card-title {
+    font-size: 1.25rem;
+  }
 }
 
 /*--------------------------------------
@@ -458,5 +560,9 @@ a {
   .title {
     font-size: 3.25rem;
     line-height: 4.375rem;
+  }
+
+  .category__card {
+    height: 230px;
   }
 }
